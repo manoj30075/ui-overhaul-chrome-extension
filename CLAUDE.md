@@ -2,6 +2,27 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Quick Start
+
+1. **Clone and Install Dependencies**
+   ```bash
+   git clone https://github.com/manoj30075/ui-overhaul-chrome-extension.git
+   cd ui-overhaul-chrome-extension
+   pnpm install
+   ```
+
+2. **Load Extension in Chrome**
+   ```bash
+   pnpm build
+   # Then load the 'extension/dist' folder in Chrome Developer Mode
+   ```
+
+3. **Development Mode**
+   ```bash
+   pnpm dev
+   # Hot reload enabled for UI components
+   ```
+
 ## Project Overview
 
 This is a Chrome Manifest V3 extension for AI-driven website UI reskinning. The extension applies LLM-generated JSON patches to modify website appearance while preserving all original interactions. Built as a monorepo using pnpm workspaces.
