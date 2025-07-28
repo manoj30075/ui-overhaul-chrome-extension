@@ -1,0 +1,1 @@
+import{j as t,c as o}from"./client-GwCyKlUh.js";function n(){return t.jsxs("div",{className:"p-4",children:[t.jsx("h1",{className:"text-lg font-bold",children:"Options"}),t.jsx("p",{children:"Configure theme presets and telemetry opt-in."})]})}const e=document.getElementById("root");e&&o(e).render(t.jsx(n,{}));

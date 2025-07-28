@@ -1,0 +1,1 @@
+import{j as e,c as o}from"./client-GwCyKlUh.js";function n(){return e.jsxs("div",{className:"p-4",children:[e.jsx("h1",{className:"text-lg font-bold",children:"UI Overhaul"}),e.jsx("button",{className:"mt-2 px-4 py-2 bg-blue-600 text-white rounded",children:"Apply Theme"})]})}const t=document.getElementById("root");t&&o(t).render(e.jsx(n,{}));
