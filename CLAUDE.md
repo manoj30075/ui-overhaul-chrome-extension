@@ -141,6 +141,17 @@ The extension uses a custom action format for context menu items:
 
 When starting any Jira task, follow this structured approach:
 
+#### 0. **Jira Ticket Review** (MANDATORY FIRST STEP)
+- **Check Jira ticket status**: Visit the ticket URL and verify current status
+- **Move ticket to "In Progress"**: If status is "To Do", transition it to "In Progress"
+- **Read all ticket comments**: Review the complete comment history to understand:
+  - What work has already been completed
+  - Current progress and blockers
+  - Technical decisions made
+  - Any context or requirements changes
+- **Identify current state**: Determine exactly where the previous work left off
+- **Update work log**: Add a comment indicating you're starting work on the ticket
+
 #### 1. **Research Phase** (Before Implementation)
 - **Read the Jira ticket thoroughly**: Understand acceptance criteria, technical requirements, and dependencies
 - **Research best practices online**: Use WebSearch to find current best practices, patterns, and examples
@@ -167,7 +178,6 @@ When starting any Jira task, follow this structured approach:
 - **Consider edge cases**: Think about error handling, performance, and security implications
 
 #### 3. **Implementation Phase**
-- **Transition ticket to "In Progress"** in Jira
 - **Follow the implementation plan**: Execute step-by-step using your todo list
 - **Write clean, documented code**: Follow existing code patterns and conventions
 - **Test thoroughly**: Verify functionality and edge cases
