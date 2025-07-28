@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "UI Overhaul",
+  "description": "AI-driven UI reskin preserving original interactions",
+  "version": "0.1.0",
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background/index.js" },
+  "action": {
+    "default_popup": "ui/popup/index.html",
+    "default_icon": {
+      "16": "static/icons/icon16.png",
+      "48": "static/icons/icon48.png",
+      "128": "static/icons/icon128.png"
+    }
+  },
+  "options_page": "ui/options/index.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/index.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "static/icons/icon16.png",
+    "48": "static/icons/icon48.png",
+    "128": "static/icons/icon128.png"
+  },
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'self';" }
+}
