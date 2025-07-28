@@ -137,11 +137,54 @@ The extension uses a custom action format for context menu items:
 - **In Progress**: Phase 1 - Core Functionality
 - **Next Priority**: SCRUM-23 (Context Menu Override System)
 
-### Jira Integration
-When working on tasks, update ticket status in Jira:
-- Transition tickets from "To Do" → "In Progress" → "Done"
-- Add work logs and comments for progress tracking
-- Link related tickets and dependencies
+### Task Implementation Workflow
+
+When starting any Jira task, follow this structured approach:
+
+#### 1. **Research Phase** (Before Implementation)
+- **Read the Jira ticket thoroughly**: Understand acceptance criteria, technical requirements, and dependencies
+- **Research best practices online**: Use WebSearch to find current best practices, patterns, and examples
+  - Search for "Chrome extension [feature] best practices 2025"
+  - Look for "React TypeScript [component] implementation patterns"
+  - Find "Chrome MV3 [API] examples and tutorials"
+- **Check official documentation**: Review Chrome Extension APIs, React docs, TypeScript guides
+- **Analyze similar implementations**: Search GitHub for open-source Chrome extensions with similar features
+- **Understand the context**: Review related files in the codebase and existing patterns
+- **Research tools and libraries**: Find the most suitable packages and check their documentation
+
+**Example Research Queries**:
+```
+"Chrome extension context menu override 2025"
+"React TypeScript Chrome extension architecture"
+"Chrome MV3 content script best practices"
+"Chrome extension state management patterns"
+```
+
+#### 2. **Planning Phase**
+- **Create implementation plan**: Break down the task into specific steps using TodoWrite
+- **Identify dependencies**: Check if prerequisite tasks are completed
+- **Review architecture**: Ensure the approach fits the existing system design
+- **Consider edge cases**: Think about error handling, performance, and security implications
+
+#### 3. **Implementation Phase**
+- **Transition ticket to "In Progress"** in Jira
+- **Follow the implementation plan**: Execute step-by-step using your todo list
+- **Write clean, documented code**: Follow existing code patterns and conventions
+- **Test thoroughly**: Verify functionality and edge cases
+- **Update progress**: Add work logs and comments to Jira ticket
+
+#### 4. **Completion Phase**
+- **Verify acceptance criteria**: Ensure all requirements are met
+- **Run quality checks**: Execute linting, type checking, and tests
+- **Document the implementation**: Add detailed completion comment to Jira
+- **Transition ticket to "Done"** in Jira
+- **Update sprint progress**: Add summary to Epic if significant milestone
+
+### Jira Integration Guidelines
+**Status Transitions**: "To Do" → "In Progress" → "Done"
+**Work Logging**: Add detailed comments with progress updates and technical decisions
+**Dependencies**: Link related tickets and note any blockers or prerequisites
+**Documentation**: Include code snippets, implementation notes, and verification steps
 
 ## Development Status
 Project is in active development with structured sprint planning. Core extension scaffolding is complete and ready for context menu implementation.
