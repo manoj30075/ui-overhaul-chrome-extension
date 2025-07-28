@@ -25,7 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Chrome Manifest V3 extension for AI-driven website UI reskinning. The extension applies LLM-generated JSON patches to modify website appearance while preserving all original interactions. Built as a monorepo using pnpm workspaces.
+**CustomClick** is a Chrome Manifest V3 extension that transforms Chrome's static right-click context menu into a dynamic, personalized command center with integrated AI assistance. The extension puts custom actions and AI capabilities at users' fingertips through an enhanced context menu experience. Built as a monorepo using pnpm workspaces.
 
 ## Development Commands
 
@@ -53,39 +53,95 @@ pnpm format        # Prettier formatting
 The extension follows Chrome MV3 architecture with these core components:
 
 ### Extension Structure
-- **Background Service Worker** (`extension/src/background/`): Handles LLM communication and patch requests
-- **Content Scripts** (`extension/src/content/`): DOM manipulation and patch application
-- **UI Components** (`extension/src/ui/`): React-based popup and options pages
-- **Shared Schema** (`extension/src/shared/schema.ts`): Zod validation for JSON patches
+- **Background Service Worker** (`extension/src/background/`): Handles AI integration and context menu management
+- **Content Scripts** (`extension/src/content/`): Context menu injection and custom action execution
+- **UI Components** (`extension/src/ui/`): React-based popup and options pages for configuration
+- **Shared Schema** (`extension/src/shared/schema.ts`): Type definitions for menu actions and AI integrations
 
 ### Key Files
-- `extension/src/shared/schema.ts`: Defines patch schema with types: hide, css, replace, insert
-- `extension/src/content/patcher.ts`: Core DOM patch application logic with DOMPurify sanitization
-- `extension/manifest.json`: Chrome extension configuration with CSP policies
+- `extension/src/shared/schema.ts`: Defines action schema for custom menu items and AI commands
+- `extension/src/content/patcher.ts`: Context menu injection and action execution logic
+- `extension/manifest.json`: Chrome extension configuration with context menu permissions
 
-### Patch System
-The extension uses a JSON patch format validated by Zod schema:
+### Menu Action System
+The extension uses a custom action format for context menu items:
 ```typescript
 {
-  type: 'hide' | 'css' | 'replace' | 'insert',
-  selector: string,
-  content?: string,
-  properties?: Record<string, string>
+  type: 'ai_action' | 'custom_script' | 'quick_link' | 'text_transform',
+  label: string,
+  icon?: string,
+  action: string | Function,
+  context?: 'text' | 'image' | 'link' | 'page'
 }
 ```
 
 ## Technology Stack
 - **Build**: Vite with @crxjs/vite-plugin for Chrome extension bundling
-- **Frontend**: React 18 with TypeScript, Tailwind CSS for styling
+- **Frontend**: React 18.2 with TypeScript 5.0, Tailwind CSS 3.4 for styling
+- **State Management**: Zustand for extension state
 - **Validation**: Zod for runtime schema validation
 - **Security**: DOMPurify for content sanitization
 - **Testing**: Jest for unit tests, Playwright for E2E
 - **Quality**: ESLint (Airbnb TypeScript), Prettier, Husky pre-commit hooks
 
 ## Security Considerations
-- All patch content is sanitized through DOMPurify before DOM application
+- All user-generated content is sanitized through DOMPurify
 - CSP policy restricts script execution to 'self'
-- Extension requires host permissions for all URLs to enable universal website modification
+- Context menu permissions are scoped to minimize attack surface
+- AI API keys are stored securely in Chrome storage with encryption
+
+## MVP Goals
+- **Target**: 1,000+ installs within 30 days of launch
+- **Performance**: <100ms context menu render time
+- **Quality**: 4.0+ star rating on Chrome Web Store
+- **Conversion**: 10% free-to-paid conversion rate
+- **Reliability**: Zero critical bugs in production
+
+## Current Sprint Status
+
+### Active Sprint: CustomClick MVP Development
+**Jira Project**: SCRUM (Test Claude)  
+**Sprint Board**: https://manojpls.atlassian.net  
+
+#### Phase 1: Core Functionality (In Progress)
+- **SCRUM-22** (CC-1): Setup Chrome Extension Project Structure ✅ **COMPLETED**
+- **SCRUM-23** (CC-2): Implement Context Menu Override System 🔄 **NEXT**
+- **SCRUM-24** (CC-3): Build Basic Menu UI Component
+- **SCRUM-25** (CC-4): Implement Text Selection Detection  
+- **SCRUM-26** (CC-5): Add Basic Search Actions
+
+#### Phase 2: Customization Features 
+- **SCRUM-27** (CC-6): Create Icon Grid System
+- **SCRUM-28** (CC-7): Implement Drag-Drop Reordering
+- **SCRUM-29** (CC-8): Build Settings/Options Page
+- **SCRUM-30** (CC-9): Implement Theme System
+- **SCRUM-31** (CC-10): Add Chrome Storage Integration
+
+#### Phase 3: AI Integration
+- **SCRUM-32** (CC-11): Setup OpenAI API Integration  
+- **SCRUM-33** (CC-12): Create AI Chat Interface
+- **SCRUM-34** (CC-13): Implement Prompt Engineering System
+- **SCRUM-35** (CC-14): Add Response Streaming
+- **SCRUM-36** (CC-15): Create API Key Management
+
+#### Phase 4: Polish & Launch
+- **SCRUM-37** (CC-16): Performance Optimization
+- **SCRUM-38** (CC-17): Create Chrome Web Store Assets
+- **SCRUM-39** (CC-18): Implement Analytics & Telemetry  
+- **SCRUM-40** (CC-19): Create Documentation & Help System
+- **SCRUM-41** (CC-20): Launch Preparation & Marketing
+
+### Sprint Progress
+- **Total Tasks**: 20 tasks (CC-1 through CC-20)
+- **Completed**: 1/20 (5%)
+- **In Progress**: Phase 1 - Core Functionality
+- **Next Priority**: SCRUM-23 (Context Menu Override System)
+
+### Jira Integration
+When working on tasks, update ticket status in Jira:
+- Transition tickets from "To Do" → "In Progress" → "Done"
+- Add work logs and comments for progress tracking
+- Link related tickets and dependencies
 
 ## Development Status
-Currently in early development phase with basic scaffolding complete. Core patcher logic and LLM integration are marked as TODO items requiring implementation.
+Project is in active development with structured sprint planning. Core extension scaffolding is complete and ready for context menu implementation.
